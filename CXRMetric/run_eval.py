@@ -3,7 +3,7 @@ import numpy as np
 import os
 import re
 import pandas as pd
-import pickle
+import dill
 import torch
 
 from bert_score import BERTScorer
@@ -204,9 +204,9 @@ def calc_metric(gt_csv, pred_csv, out_csv, use_idf): # TODO: support single metr
 
     # compute composite metric: RadCliQ-v0
     with open(COMPOSITE_METRIC_V0_PATH, "rb") as f:
-        composite_metric_v0_model = pickle.load(f)
+        composite_metric_v0_model = dill.load(f)
     with open(NORMALIZER_PATH, "rb") as f:
-        normalizer = pickle.load(f)
+        normalizer = dill.load(f)
     # normalize
     input_data = np.array(pred[COLS])
     norm_input_data = normalizer.transform(input_data)
@@ -216,7 +216,7 @@ def calc_metric(gt_csv, pred_csv, out_csv, use_idf): # TODO: support single metr
 
     # compute composite metric: RadCliQ-v1
     with open(COMPOSITE_METRIC_V1_PATH, "rb") as f:
-        composite_metric_v1_model = pickle.load(f)
+        composite_metric_v1_model = dill.load(f)
     input_data = np.array(pred[COLS])
     radcliq_v1_scores = composite_metric_v1_model.predict(input_data)
     pred[composite_metric_col_v1] = radcliq_v1_scores
