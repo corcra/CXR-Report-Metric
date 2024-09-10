@@ -21,8 +21,8 @@ CHEXBERT_PATH = config.CHEXBERT_PATH
 RADGRAPH_PATH = config.RADGRAPH_PATH
 
 NORMALIZER_PATH = "CXRMetric/normalizer.pkl"
-COMPOSITE_METRIC_V0_PATH = "CXRMetric/composite_metric_model.pkl"
-COMPOSITE_METRIC_V1_PATH = "CXRMetric/radcliq-v1.pkl"
+COMPOSITE_METRIC_V0_PATH = "CXRMetric/composite_metric_model.dill"
+COMPOSITE_METRIC_V1_PATH = "CXRMetric/radcliq-v1.dill"
 
 REPORT_COL_NAME = "report"
 STUDY_ID_COL_NAME = "study_id"
